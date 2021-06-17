@@ -33,7 +33,15 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig"){
+          
+                  sh 'kubectl create -f $WORKSPACE/hellowhale.yml'
+                  sh 'kubectl get pods'
+                  sh 'kubectl get svc'
+                  echo 'open minikube ip and svc port which is 31113 in browser'
+                  echo 'deployment completed ........'
+
+          }
         }
       }
     }
