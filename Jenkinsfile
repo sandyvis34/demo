@@ -34,7 +34,7 @@ pipeline {
       steps {
         script {
           kubeconfig(credentialsId: 'mysecret', serverUrl: 'http://localhost:7777') {
-    // some block
+    // some blockdd
                   sh 'kubectl create -f $WORKSPACE/hellowhale.yml'
                   sh 'kubectl get pods'
                   sh 'kubectl get svc'
