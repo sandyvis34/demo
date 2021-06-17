@@ -33,8 +33,8 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig"){
-          
+          kubeconfig(credentialsId: 'mysecret', serverUrl: 'http://localhost:7777') {
+    // some block
                   sh 'kubectl create -f $WORKSPACE/hellowhale.yml'
                   sh 'kubectl get pods'
                   sh 'kubectl get svc'
@@ -42,7 +42,7 @@ pipeline {
                   echo 'deployment completed ........'
 
           }
-        }
+         }
       }
     }
 
