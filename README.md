@@ -1,2 +1,2 @@
 # hellowhale
-Simple Docker Demo App by sany
+Simple Docker Demo App by sandddy
